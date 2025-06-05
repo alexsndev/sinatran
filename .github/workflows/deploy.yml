@@ -10,22 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v3
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./          # raiz do seu projeto Laravel
-          server-dir: /laravel/  # ajuste para a pasta onde fica o Laravel fora do public_html
+          local-dir: ./
+          server-dir: /laravel/  # Ajuste conforme sua pasta na HostGator
           exclude: |
             .git*
             node_modules/
             tests/
             storage/
-            vendor/
             .github/
             .env
+          delete: true
