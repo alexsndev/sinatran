@@ -5,38 +5,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy Laravel (exceto public e arquivos sensíveis) para /laravel
-        uses: SamKirkland/ftp-action@v1
+      - name: Deploy public folder
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          remote-dir: /laravel
-          exclude: |
-            public/**
-            .env
-            .gitignore
-            .git/**
-            README.md
-            node_modules/**
-            storage/**
-            bootstrap/cache/**
-            .htaccess
-            index.php
-
-      - name: Deploy public para /public_html (excluindo arquivos sensíveis)
-        uses: SamKirkland/ftp-action@v1
-        with:
-          host: ${{ secrets.FTP_SERVER }}
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./public
-          remote-dir: /public_html
+
+      - name: Deploy Laravel files except public
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
           exclude: |
-            .env
-            .gitignore
-            .git/**
-            README.md
-            node_modules/**
-            .htaccess
+            public/**
