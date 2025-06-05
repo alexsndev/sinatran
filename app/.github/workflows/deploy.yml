@@ -1,0 +1,30 @@
+name: Deploy Laravel via FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: FTP Deploy
+        uses: SamKirkland/ftp-action@v1.2.0
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: './'
+          remote-dir: '/laravel'
+          exclude: |
+            .git*
+            node_modules/
+            tests/
+            storage/
+            .github/
+            .env
