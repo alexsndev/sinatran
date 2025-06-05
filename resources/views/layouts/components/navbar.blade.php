@@ -3,7 +3,7 @@
         <a href="{{ route('home') }}" class="no-underline flex items-center min-w-0" style="cursor:pointer;">
             <img src="{{ asset('images/sinatrandf.png') }}" alt="Logo Sinatrandf" class="h-12 w-auto sm:h-16" style="cursor:pointer;">
             <span class="ml-3 text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg font-semibold text-black no-underline flex items-center h-full">
-                SINDICATO DOS AGENTES DE TRÂNSITO DO DF
+                SINDICATO DOS AGENTES DE TRANSITO DO DF
             </span>
         </a>
 
