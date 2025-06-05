@@ -1,4 +1,4 @@
-name: Deploy Laravel to HostGator via FTP
+name: Deploy Laravel via FTP
 
 on:
   push:
@@ -6,79 +6,26 @@ on:
       - main
 
 jobs:
-  deploy:
-    name: 🚀 Upload Laravel to HostGator
+  ftp-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout do repositório
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 🧰 Setup PHP
-        uses: shivammathur/setup-php@v2
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
-          php-version: '8.2'
-
-      - name: 💾 Cache dependências do Composer
-        uses: actions/cache@v3
-        with:
-          path: |
-            vendor
-            ~/.composer/cache
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
-
-      - name: 📦 Instalar dependências do Composer
-        run: composer install --no-dev --optimize-autoloader
-
-      - name: ⚙️ Build Frontend (Vite)
-        run: |
-          npm install
-          npm run build
-
-      # 🔁 Upload do núcleo do Laravel (exceto public_html)
-      - name: 📤 Upload Core Laravel (para /home3/sinatr15/laravel/)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_SERVER_IP }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          protocol: ftps
-          port: 21
-          server-dir: laravel/
-          local-dir: ./
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./          # raiz do seu projeto Laravel
+          server-dir: /laravel/  # ajuste para a pasta onde fica o Laravel fora do public_html
           exclude: |
-            public/**
-            .git/**
-            .github/**
-            node_modules/**
-            tests/**
+            .git*
+            node_modules/
+            tests/
+            storage/
+            vendor/
+            .github/
             .env
-            README.md
-            vite.config.js
-            webpack.mix.js
-            package.json
-            package-lock.json
-            .DS_Store
-          dangerous-clean-slate: false
-
-      # 🌐 Upload da pasta public (para /home3/sinatr15/public_html/)
-      - name: 🌐 Upload Public Folder (para public_html/)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_SERVER_IP }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          protocol: ftps
-          port: 21
-          server-dir: public_html/
-          local-dir: ./public/
-          exclude: |
-            .git**
-            .DS_Store
-          dangerous-clean-slate: false
-
-      # ⚠️ NÃO faça upload do .env aqui por segurança!
-      # Configure o .env direto no servidor HostGator
-
