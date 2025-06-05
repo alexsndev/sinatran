@@ -1,0 +1,165 @@
+[04-Jun-2025 15:26:48 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:26:48 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:26:51 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:26:51 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:26:55 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:26:55 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:26:59 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:26:59 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:03 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:03 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:07 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:07 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:11 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:11 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:17 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:17 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:22 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:22 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:26 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:26 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:31 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:31 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:35 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:35 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:39 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:39 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:42 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:42 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:47 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:47 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:50 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:50 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:54 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:54 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:59 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:27:59 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:02 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:02 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:07 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:07 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:11 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:11 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:14 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:14 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:18 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:18 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:23 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:23 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:27 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:27 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:31 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:31 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:35 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:35 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:40 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:40 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:43 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:43 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:47 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:47 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:51 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:51 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:55 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:55 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:59 America/Fortaleza] PHP Warning:  require(/home3/sinatr15/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home3/sinatr15/public_html/index.php on line 14
+[04-Jun-2025 15:28:59 America/Fortaleza] PHP Fatal error:  Uncaught Error: Failed opening required '/home3/sinatr15/public_html/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home3/sinatr15/public_html/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/sinatr15/public_html/index.php on line 14
