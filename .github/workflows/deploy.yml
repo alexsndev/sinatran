@@ -4,8 +4,8 @@
     server: ${{ secrets.FTP_SERVER }}
     username: ${{ secrets.FTP_USERNAME }}
     password: ${{ secrets.FTP_PASSWORD }}
+    server-dir: /laravel/               # ✅ Essa propriedade FUNCIONA nessa versão
     local-dir: ./
-    server-dir: /laravel/     # ✅ Corrigido com a barra no final
     exclude: |
       public/**
       .env
