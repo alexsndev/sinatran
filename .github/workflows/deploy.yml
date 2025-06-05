@@ -5,15 +5,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy Laravel (exceto public) para /laravel
-  uses: SamKirkland/ftp-action@v1
-  with:
-    host: ${{ secrets.FTP_SERVER }}
-    username: ${{ secrets.FTP_USERNAME }}
-    password: ${{ secrets.FTP_PASSWORD }}
-    local-dir: ./
-    remote-dir: /laravel
-    exclude: public/**
+      - name: Deploy Laravel (exceto public e arquivos sensíveis) para /laravel
+        uses: SamKirkland/ftp-action@v1
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          remote-dir: /laravel
+          exclude: |
+            public/**
             .env
             .gitignore
             .git/**
@@ -24,14 +25,18 @@ jobs:
             .htaccess
             index.php
 
-     - name: Deploy public para /public_html
-  uses: SamKirkland/ftp-action@v1
-  with:
-    host: ${{ secrets.FTP_SERVER }}
-    username: ${{ secrets.FTP_USERNAME }}
-    password: ${{ secrets.FTP_PASSWORD }}
-    local-dir: ./public
-    remote-dir: /public_html
-
+      - name: Deploy public para /public_html (excluindo arquivos sensíveis)
+        uses: SamKirkland/ftp-action@v1
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./public
+          remote-dir: /public_html
           exclude: |
             .env
+            .gitignore
+            .git/**
+            README.md
+            node_modules/**
+            .htaccess
