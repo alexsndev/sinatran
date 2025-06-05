@@ -5,15 +5,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy Laravel (tudo menos public e arquivos sensíveis) na raiz laravel
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}/laravel
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          exclude: |
-            public/**
+      - name: Deploy Laravel (exceto public) para /laravel
+  uses: SamKirkland/ftp-action@v1
+  with:
+    host: ${{ secrets.FTP_SERVER }}
+    username: ${{ secrets.FTP_USERNAME }}
+    password: ${{ secrets.FTP_PASSWORD }}
+    local-dir: ./
+    remote-dir: /laravel
+    exclude: public/**
             .env
             .gitignore
             .git/**
@@ -24,12 +24,14 @@ jobs:
             .htaccess
             index.php
 
-      - name: Deploy public na pasta public_html
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}/public_html
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./public
+     - name: Deploy public para /public_html
+  uses: SamKirkland/ftp-action@v1
+  with:
+    host: ${{ secrets.FTP_SERVER }}
+    username: ${{ secrets.FTP_USERNAME }}
+    password: ${{ secrets.FTP_PASSWORD }}
+    local-dir: ./public
+    remote-dir: /public_html
+
           exclude: |
             .env
