@@ -1,10 +1,9 @@
 - name: 📂 Sync Laravel files (sem public) para /laravel
   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
   with:
-    server: ${{ secrets.FTP_SERVER }}
+    server: ${{ secrets.FTP_SERVER }}/laravel/   # <- pasta vai aqui!
     username: ${{ secrets.FTP_USERNAME }}
     password: ${{ secrets.FTP_PASSWORD }}
-    server-dir: /laravel/               # ✅ Essa propriedade FUNCIONA nessa versão
     local-dir: ./
     exclude: |
       public/**
