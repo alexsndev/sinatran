@@ -1,16 +1,27 @@
-- name: 📂 Sync Laravel files (sem public) para /laravel
-  uses: SamKirkland/FTP-Deploy-Action@v3.1.0
-  with:
-    server: ${{ secrets.FTP_SERVER }}     # só domínio ou IP aqui
-    username: ${{ secrets.FTP_USERNAME }}
-    password: ${{ secrets.FTP_PASSWORD }}
-    server-dir: /laravel/
-    local-dir: ./
-    exclude: |
-      public/**
-      .env
-      .gitignore
-      README.md
-      node_modules/**
-      vendor/**
-      bootstrap/cache/**
+on: push
+name: 🚀 Deploy Laravel (sem public) para /laravel
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy Laravel App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 📂 Sync Laravel files (sem public) para /laravel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}/laravel/
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          exclude: |
+            public/**
+            .env
+            .gitignore
+            README.md
+            node_modules/**
+            vendor/**
+            bootstrap/cache/**
