@@ -16,9 +16,26 @@ jobs:
       - name: 🔄 Checkout repo
         uses: actions/checkout@v4
 
-      - name: 🚀 FTP Deploy
+      - name: 🚀 FTP Deploy (deploy padrão)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+
+      - name: 📂 Sync Laravel files (sem public) para /laravel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /laravel/
+          exclude: |
+            public/**
+            .env
+            .gitignore
+            README.md
+            node_modules/**
+            vendor/**
+            bootstrap/cache/**
