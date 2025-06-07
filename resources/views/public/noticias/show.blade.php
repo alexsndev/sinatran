@@ -74,9 +74,9 @@
             @endif
         </div>
 
-        <div class="prose max-w-full prose-blue prose-img:rounded-xl mb-8">
-            {!! $noticia->conteudo !!}
-        </div>
+        <<div class="prose max-w-full prose-blue prose-img:rounded-xl mb-8" style="color: black !important;">
+    {!! $noticia->conteudo !!}
+</div>
 
         {{-- Removido bloco de exibição de medias --}}
         {{--
