@@ -74,19 +74,20 @@
             @enderror
         </div>
 
-        <div>
-            <label class="block font-semibold mb-1">Conteúdo</label>
-            <textarea
-                name="conteudo"
-                rows="10"
-                class="w-full border rounded px-4 py-2 @error('conteudo') border-red-500 @enderror"
-                required
-                placeholder="Digite o conteúdo"
-            >{{ old('conteudo') }}</textarea>
-            @error('conteudo')
-                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
+  <div>
+    <label class="block font-semibold mb-1">Conteúdo</label>
+    <textarea
+        name="conteudo"
+        rows="10"
+        class="w-full border rounded px-4 py-2 @error('conteudo') border-red-500 @enderror"
+        required
+        placeholder="Digite o conteúdo"
+        style="color: black !important"
+    >{{ old('conteudo') }}</textarea>
+    @error('conteudo')
+        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+    @enderror
+</div>
 
         <div>
             <button
