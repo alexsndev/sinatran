@@ -25,38 +25,41 @@
         </style>
 
         <div>
-            <label class="block font-semibold mb-1">Título</label>
-            <input
-                type="text"
-                name="titulo"
-                value="{{ old('titulo') }}"
-                class="w-full border rounded px-4 py-2 @error('titulo') border-red-500 @enderror"
-                required
-                placeholder="Digite o título"
-            >
-            @error('titulo')
-                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
+    <label class="block font-semibold mb-1">Título</label>
+    <input
+        type="text"
+        name="titulo"
+        value="{{ old('titulo') }}"
+        class="w-full border rounded px-4 py-2 @error('titulo') border-red-500 @enderror"
+        style="color: black !important"
+        required
+        placeholder="Digite o título"
+    >
+    @error('titulo')
+        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+    @enderror
+</div>
 
-        <div>
-            <label class="block font-semibold mb-1">Categoria</label>
-            <select
-                name="categoria_id"
-                class="w-full border rounded px-4 py-2 @error('categoria_id') border-red-500 @enderror"
-                required
-            >
-                <option value="">Selecione</option>
-                @foreach ($categorias as $categoria)
-                    <option value="{{ $categoria->id }}" {{ old('categoria_id') == $categoria->id ? 'selected' : '' }}>
-                        {{ $categoria->nome }}
-                    </option>
-                @endforeach
-            </select>
-            @error('categoria_id')
-                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
+<div>
+    <label class="block font-semibold mb-1">Categoria</label>
+    <select
+        name="categoria_id"
+        class="w-full border rounded px-4 py-2 @error('categoria_id') border-red-500 @enderror"
+        style="color: black !important"
+        required
+    >
+        <option value="">Selecione</option>
+        @foreach ($categorias as $categoria)
+            <option value="{{ $categoria->id }}" {{ old('categoria_id') == $categoria->id ? 'selected' : '' }}>
+                {{ $categoria->nome }}
+            </option>
+        @endforeach
+    </select>
+    @error('categoria_id')
+        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+    @enderror
+</div>
+
 
         <div>
             <label class="block font-semibold mb-1">Imagem de Capa</label>
