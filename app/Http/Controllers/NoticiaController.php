@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Noticia;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use App\Models\Media;
 use Illuminate\Support\Facades\Storage;
 
 class NoticiaController extends Controller
@@ -46,27 +47,24 @@ class NoticiaController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'titulo' => 'required|string|max:255',
-            'conteudo' => 'required|string',
-            'categoria_id' => 'required|exists:categorias,id',
-            'imagem_capa' => 'nullable|image|max:2048',
+{
+    // validações...
+    $noticia = Noticia::create($request->only('titulo', 'conteudo', 'categoria_id'));
+
+    if ($request->hasFile('imagem_capa')) {
+        $path = $request->file('imagem_capa')->store('noticias', 'public');
+
+        // 6️⃣ Inclua typeID => Media::TYPE_CAPA
+        $noticia->medias()->create([
+            'url'       => $path,
+            'typeID'    => Media::TYPE_CAPA,
+            'url_imgbb' => null,
         ]);
-
-        $noticia = Noticia::create($request->only('titulo', 'conteudo', 'categoria_id'));
-
-        if ($request->hasFile('imagem_capa')) {
-            $path = $request->file('imagem_capa')->store('noticias', 'public');
-
-            $noticia->medias()->create([
-                'url' => $path,
-                'url_imgbb' => null,
-            ]);
-        }
-
-        return redirect()->route('admin.noticias.index')->with('success', 'Notícia criada com sucesso!');
     }
+
+    return redirect()->route('admin.noticias.index')
+                     ->with('success', 'Notícia criada com sucesso!');
+}
 
     public function edit($id)
     {
@@ -76,36 +74,31 @@ class NoticiaController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $noticia = Noticia::findOrFail($id);
+{
+    $noticia = Noticia::findOrFail($id);
+    // validações...
+    $noticia->update($request->only('titulo', 'conteudo', 'categoria_id'));
 
-        $request->validate([
-            'titulo' => 'required|string|max:255',
-            'conteudo' => 'required|string',
-            'categoria_id' => 'required|exists:categorias,id',
-            'imagem_capa' => 'nullable|image|max:2048',
-        ]);
-
-        $noticia->update($request->only('titulo', 'conteudo', 'categoria_id'));
-
-        if ($request->hasFile('imagem_capa')) {
-            // Apaga imagens antigas
-            foreach ($noticia->medias as $media) {
-                Storage::disk('public')->delete($media->url);
-                $media->delete();
-            }
-
-            // Salva nova imagem
-            $path = $request->file('imagem_capa')->store('noticias', 'public');
-
-            $noticia->medias()->create([
-                'url' => $path,
-                'url_imgbb' => null,
-            ]);
+    if ($request->hasFile('imagem_capa')) {
+        // apaga antigas...
+        foreach ($noticia->medias as $media) {
+            Storage::disk('public')->delete($media->url);
+            $media->delete();
         }
 
-        return redirect()->route('admin.noticias.index')->with('success', 'Notícia atualizada com sucesso!');
+        $path = $request->file('imagem_capa')->store('noticias', 'public');
+
+        // 7️⃣ Aqui também adicione typeID
+        $noticia->medias()->create([
+            'url'       => $path,
+            'typeID'    => Media::TYPE_CAPA,
+            'url_imgbb' => null,
+        ]);
     }
+
+    return redirect()->route('admin.noticias.index')
+                     ->with('success', 'Notícia atualizada com sucesso!');
+}
 
     public function destroy($id)
     {
