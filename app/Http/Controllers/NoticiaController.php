@@ -52,15 +52,16 @@ class NoticiaController extends Controller
     $noticia = Noticia::create($request->only('titulo', 'conteudo', 'categoria_id'));
 
     if ($request->hasFile('imagem_capa')) {
-        $path = $request->file('imagem_capa')->store('noticias', 'public');
+    $nomeArquivo = uniqid() . '.' . $request->file('imagem_capa')->extension();
+    $request->file('imagem_capa')->move(public_path('storage/noticias'), $nomeArquivo);
+    $path = 'noticias/' . $nomeArquivo;
 
-        // 6️⃣ Inclua typeID => Media::TYPE_CAPA
-        $noticia->medias()->create([
-            'url'       => $path,
-            'typeID'    => Media::TYPE_CAPA,
-            'url_imgbb' => null,
-        ]);
-    }
+    $noticia->medias()->create([
+        'url'       => $path,
+        'typeID'    => Media::TYPE_CAPA,
+        'url_imgbb' => null,
+    ]);
+}
 
     return redirect()->route('admin.noticias.index')
                      ->with('success', 'Notícia criada com sucesso!');
