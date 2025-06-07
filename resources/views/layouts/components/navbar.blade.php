@@ -19,6 +19,13 @@
                 <li><a href="{{ route('sobre') }}" class="block py-1 px-3 rounded hover:bg-gray-100 hover:text-black no-underline">Sobre</a></li>
                 <li><a href="{{ url('/legislacao') }}" class="block py-1 px-3 rounded hover:bg-gray-100 hover:text-black no-underline">Legislação</a></li>
                 <li><a href="{{ route('convocacoes.index') }}" class="block py-1 px-3 rounded hover:bg-gray-100 hover:text-black no-underline">Convocações</a></li>
+                <li>
+                    <a href="{{ route('filiacao.create') }}"
+                       class="block py-1 px-3 rounded border border-blue-500 text-blue-600 bg-white hover:bg-blue-50 hover:text-blue-700 transition no-underline text-sm font-medium"
+                       style="margin-left: 0.5rem;">
+                        Filie-se
+                    </a>
+                </li>
                 @auth
                     @if(auth()->user()->is_admin ?? false)
                         <li>
@@ -58,6 +65,99 @@
                                     </button>
                                 </form>
                             </li>
+
+                            <!-- Botão Toggle no nav -->
+<nav>
+  <label class="switch">
+    <input type="checkbox" id="toggle-darkmode" />
+    <span class="slider"></span>
+  </label>
+</nav>
+
+<style>
+  /* Container do toggle */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    margin-left: 20px; /* Espaço no nav */
+  }
+
+  /* Esconde o checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* O “slider” que aparece */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    border-radius: 22px;
+    transition: 0.4s;
+  }
+
+  /* A bolinha do toggle */
+  .slider::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+
+  /* Quando ativo (dark mode) */
+  input:checked + .slider {
+    background-color: #555;
+  }
+
+  input:checked + .slider::before {
+    transform: translateX(18px);
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('toggle-darkmode');
+
+  // Ao carregar a página, aplica o tema salvo (se houver)
+  if(localStorage.getItem('darkmode') === 'true'){
+    document.body.classList.add('dark-mode');
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkmode', toggle.checked);
+  });
+</script>
+
+<style>
+  /* Defina aqui os estilos do dark mode */
+  body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  /* Você pode ajustar seu nav e outros elementos */
+  nav {
+    background: #f5f5f5;
+    padding: 10px 20px;
+  }
+
+  body.dark-mode nav {
+    background: #222;
+  }
+</style>
+
+
                             @if(auth()->user()->is_admin ?? false)
                                 <li>
                                     <button type="button" onclick="window.location='{{ route('admin.dashboard') }}'" class="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-100">

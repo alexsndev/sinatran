@@ -9,16 +9,23 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\NoticiaController as AdminNoticiaController;
 use App\Http\Controllers\Admin\CategoriaController as AdminCategoriaController;
 use App\Http\Controllers\ConvocacaoController;
+use App\Http\Controllers\FiliacaoController;
 /*
 |--------------------------------------------------------------------------
 | Rotas Públicas
 |--------------------------------------------------------------------------
 */
 
+
+
+Route::get('/filiacao', [FiliacaoController::class, 'create'])->name('filiacao.create');
+Route::post('/filiacao', [FiliacaoController::class, 'store'])->name('filiacao.store');
+
 Route::get('/legislacao', function () {
     return view('public.legislacao.legislacao');
 });
 
+// Rota pública para convocações (já está correta)
 Route::get('/convocacoes', [ConvocacaoController::class, 'index'])->name('convocacoes.index');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -70,3 +77,12 @@ Route::middleware(['auth'])->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Observação: O erro "Attempt to read property 'name' on null" não está neste arquivo de rotas.
+// Ele ocorre em alguma view/blade onde você tenta acessar $categoria->name ou $categoria->nome, mas $categoria está null.
+// Para corrigir, ajuste nas suas views para:
+// {{ $categoria->nome ?? '' }}
+// ou
+// @if($categoria)
+//     {{ $categoria->nome }}
+// @endif

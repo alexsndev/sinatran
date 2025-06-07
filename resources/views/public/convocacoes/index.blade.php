@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.public')
 
 @section('content')
 <div class="container mx-auto px-4 py-8 flex gap-8">
@@ -11,18 +11,12 @@
             </h1>
 
             @php
-                $imagem = $convocacaoAtual->imagemCapa ?? null;
                 $urlImagem = null;
-                if ($imagem && !empty($imagem->url)) {
-                    $urlImagem = $imagem->url;
-                } elseif (!empty($convocacaoAtual->imagem)) {
+                if (!empty($convocacaoAtual->imagem)) {
                     if (filter_var($convocacaoAtual->imagem, FILTER_VALIDATE_URL)) {
                         $urlImagem = $convocacaoAtual->imagem;
                     } else {
-                        $storagePath = 'storage/' . $convocacaoAtual->imagem;
-                        if (file_exists(public_path($storagePath))) {
-                            $urlImagem = asset($storagePath);
-                        }
+                        $urlImagem = asset('storage/' . $convocacaoAtual->imagem);
                     }
                 }
             @endphp

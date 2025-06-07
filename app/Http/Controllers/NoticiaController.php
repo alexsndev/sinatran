@@ -101,4 +101,15 @@ class NoticiaController extends Controller
 
         return redirect()->route('admin.noticias.index')->with('success', 'Notícia excluída com sucesso!');
     }
+
+    // Adicione este método para tornar convocações públicas (exemplo)
+    public function convocacoes()
+    {
+        $noticias = Noticia::where('categoria_id', /* id da categoria de convocações */)
+            ->orderBy('id', 'desc')
+            ->with(['categoria'])
+            ->paginate(10);
+
+        return view('public.convocacoes.index', compact('noticias'));
+    }
 }
