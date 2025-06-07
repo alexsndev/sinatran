@@ -9,6 +9,18 @@ use Illuminate\Support\Facades\Storage;
 
 class NoticiaController extends Controller
 {
+    public function search(Request $request)
+    {
+        $query = $request->input('q');
+        $noticias = Noticia::with(['categoria', 'medias'])
+            ->when($query, function ($q) use ($query) {
+                $q->where('titulo', 'like', "%{$query}%");
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(10);
+
+        return view('public.noticias.index', compact('noticias', 'query'));
+    }
     public function index()
     {
         $noticias = Noticia::orderBy('id', 'desc')->with(['categoria', 'medias'])->paginate(10);

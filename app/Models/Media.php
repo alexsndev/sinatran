@@ -10,9 +10,9 @@ class Media extends Model
 
     protected $fillable = ['postID', 'typeID', 'url'];
 
-    public function noticia()
-    {
-        return $this->belongsTo(Noticia::class, 'postID');
-    }
+public function noticia()
+{
+    return $this->belongsTo(Noticia::class, 'postID');
+}
 }
 

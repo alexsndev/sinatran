@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Categoria;
 use App\Models\Media;  // <-- IMPORTAR com "Media"
 
+
 class Noticia extends Model
 {
     protected $fillable = ['titulo', 'conteudo', 'imagem', 'categoria_id'];
@@ -15,10 +16,10 @@ class Noticia extends Model
         return $this->belongsTo(Categoria::class);
     }
 
-   public function medias()
-    {
-        return $this->hasMany(Media::class, 'postID');
-    }
+public function medias()
+{
+    return $this->hasMany(Media::class, 'postID');
+}
 
     public function imagemCapa()
     {
