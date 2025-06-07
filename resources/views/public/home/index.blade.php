@@ -152,10 +152,7 @@
                                     if (filter_var($post->imagem, FILTER_VALIDATE_URL)) {
                                         $urlImagem = $post->imagem;
                                     } else {
-                                        $storagePath = 'storage/' . $post->imagem;
-                                        if (file_exists(public_path($storagePath))) {
-                                            $urlImagem = asset($storagePath);
-                                        }
+                                        $urlImagem = asset('storage/' . $post->imagem);
                                     }
                                 }
                                 $palavras = str_word_count(strip_tags($post->conteudo));
