@@ -27,7 +27,24 @@
             <tbody>
                 @forelse ($noticias as $noticia)
                     <tr class="border-t border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
-                        <td class="p-4 font-medium text-gray-900 dark:text-gray-100">{{ $noticia->titulo }}</td>
+                        <td class="p-4 font-medium text-gray-900 dark:text-gray-100">
+                            @php
+                                $urlImagem = null;
+                                if (!empty($noticia->imagem)) {
+                                    if (filter_var($noticia->imagem, FILTER_VALIDATE_URL)) {
+                                        $urlImagem = $noticia->imagem;
+                                    } else {
+                                        $urlImagem = asset('storage/' . $noticia->imagem);
+                                    }
+                                }
+                            @endphp
+
+                            @if ($urlImagem)
+                                <img src="{{ $urlImagem }}" alt="{{ $noticia->titulo }}" class="w-24 h-16 object-cover rounded">
+                            @endif
+
+                            {{ $noticia->titulo }}
+                        </td>
                         <td class="p-4 text-gray-700 dark:text-gray-300">{{ $noticia->categoria->nome ?? 'Sem categoria' }}</td>
                         <td class="p-4 text-gray-500 dark:text-gray-400">
                             {{ $noticia->created_at ? $noticia->created_at->format('d/m/Y') : '—' }}

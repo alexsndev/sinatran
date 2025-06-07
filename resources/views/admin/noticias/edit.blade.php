@@ -26,9 +26,21 @@
 
         <div>
             <label class="block font-semibold mb-1">Imagem Atual</label>
-            @if ($noticia->imagem)
-                <img src="{{ asset('storage/' . $noticia->imagem) }}" alt="Imagem atual" class="h-32 mb-2">
+            @php
+                $urlImagem = null;
+                if (!empty($noticia->imagem)) {
+                    if (filter_var($noticia->imagem, FILTER_VALIDATE_URL)) {
+                        $urlImagem = $noticia->imagem;
+                    } else {
+                        $urlImagem = asset('storage/' . $noticia->imagem);
+                    }
+                }
+            @endphp
+
+            @if ($urlImagem)
+                <img src="{{ $urlImagem }}" alt="{{ $noticia->titulo }}" class="mb-4 w-full max-w-xs h-40 object-cover rounded">
             @endif
+
             <input type="file" name="imagem" class="w-full border rounded px-4 py-2">
         </div>
 

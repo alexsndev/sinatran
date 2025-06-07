@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Noticia;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NoticiaController extends Controller
 {
     public function index()
     {
-        $noticias = Noticia::with(['categoria', 'medias'])
-                    ->orderBy('id', 'desc')  // Ordena do mais novo para o mais antigo
+        $noticias = Noticia::with(['categoria'])
+                    ->orderBy('id', 'desc')
                     ->paginate(10);
 
         return view('admin.noticias.index', compact('noticias'));
@@ -61,11 +62,13 @@ class NoticiaController extends Controller
         ]);
 
         if ($request->hasFile('imagem')) {
+            // Remove imagem antiga se existir
+            if ($noticia->imagem) {
+                Storage::disk('public')->delete($noticia->imagem);
+            }
             $imagemPath = $request->file('imagem')->store('noticias', 'public');
             $dados['imagem'] = $imagemPath;
         }
-
-
 
         $noticia->update($dados);
 
@@ -74,6 +77,10 @@ class NoticiaController extends Controller
 
     public function destroy(Noticia $noticia)
     {
+        // Remove imagem do storage se existir
+        if ($noticia->imagem) {
+            Storage::disk('public')->delete($noticia->imagem);
+        }
         $noticia->delete();
         return redirect()->route('admin.noticias.index')->with('success', 'Notícia excluída com sucesso.');
     }

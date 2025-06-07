@@ -62,11 +62,11 @@
             <label class="block font-semibold mb-1">Imagem de Capa</label>
             <input
                 type="file"
-                name="imagem_capa"
+                name="imagem"
                 accept="image/*"
-                class="w-full border rounded px-4 py-2 @error('imagem_capa') border-red-500 @enderror"
+                class="w-full border rounded px-4 py-2 @error('imagem') border-red-500 @enderror"
             >
-            @error('imagem_capa')
+            @error('imagem')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>

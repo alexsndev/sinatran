@@ -58,10 +58,19 @@
         @endif
 
         <div class="w-full flex justify-center mb-8">
-            @if(isset($noticia->imagemCapa) && !empty($noticia->imagemCapa->url))
-                <img src="{{ asset($noticia->imagemCapa->url) }}" alt="Imagem da notícia" class="rounded-xl max-w-full max-h-[600px] object-cover">
-            @elseif(!empty($noticia->imagem))
-                <img src="{{ filter_var($noticia->imagem, FILTER_VALIDATE_URL) ? $noticia->imagem : asset('storage/' . $noticia->imagem) }}" alt="Imagem da notícia" class="rounded-xl max-w-full max-h-[600px] object-cover">
+            @php
+                $urlImagem = null;
+                if (!empty($noticia->imagem)) {
+                    if (filter_var($noticia->imagem, FILTER_VALIDATE_URL)) {
+                        $urlImagem = $noticia->imagem;
+                    } else {
+                        $urlImagem = asset('storage/' . $noticia->imagem);
+                    }
+                }
+            @endphp
+
+            @if ($urlImagem)
+                <img src="{{ $urlImagem }}" alt="{{ $noticia->titulo }}" class="w-full h-80 object-cover rounded mb-6">
             @endif
         </div>
 
@@ -69,6 +78,8 @@
             {!! $noticia->conteudo !!}
         </div>
 
+        {{-- Removido bloco de exibição de medias --}}
+        {{--
         @if(isset($noticia->medias) && $noticia->medias->count())
             <div class="flex flex-wrap gap-4 my-8 justify-center">
                 @foreach($noticia->medias as $media)
@@ -78,6 +89,7 @@
                 @endforeach
             </div>
         @endif
+        --}}
 
         <div class="flex items-center gap-4 mt-8">
             <a href="{{ route('noticias.index') }}" class="inline-flex items-center gap-2 text-blue-700 hover:underline font-semibold text-base">

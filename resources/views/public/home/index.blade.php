@@ -17,11 +17,8 @@
                 @foreach ($noticias as $loopIndex => $noticia)
                     <div class="bg-white rounded-2xl shadow overflow-hidden flex flex-col h-[480px] relative border border-gray-100 group cursor-pointer" onclick="window.location='{{ route('noticias.show', $noticia->id) }}'">
                         @php
-                            $imagem = $noticia->imagemCapa ?? null;
                             $urlImagem = null;
-                            if ($imagem && !empty($imagem->url)) {
-                                $urlImagem = $imagem->url;
-                            } elseif (!empty($noticia->imagem)) {
+                            if (!empty($noticia->imagem)) {
                                 if (filter_var($noticia->imagem, FILTER_VALIDATE_URL)) {
                                     $urlImagem = $noticia->imagem;
                                 } else {
@@ -150,11 +147,8 @@
                     <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
                         @foreach ($categoria->noticias as $post)
                             @php
-                                $imagem = $post->imagemCapa ?? null;
                                 $urlImagem = null;
-                                if ($imagem && !empty($imagem->url)) {
-                                    $urlImagem = $imagem->url;
-                                } elseif (!empty($post->imagem)) {
+                                if (!empty($post->imagem)) {
                                     if (filter_var($post->imagem, FILTER_VALIDATE_URL)) {
                                         $urlImagem = $post->imagem;
                                     } else {
