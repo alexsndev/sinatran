@@ -15,7 +15,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 @foreach ($noticias as $loopIndex => $noticia)
-                    <div class="bg-white rounded-2xl shadow overflow-hidden flex flex-col h-[480px] relative border border-gray-100 group cursor-pointer" onclick="window.location='{{ route('noticias.show', $noticia->id) }}'">
+                    <div class="bg-white rounded-2xl  overflow-hidden flex flex-col h-[480px] relative border border-gray-100 group cursor-pointer" onclick="window.location='{{ route('noticias.show', $noticia->id) }}'">
                         @php
                             $urlImagem = null;
                             if (!empty($noticia->imagem)) {
