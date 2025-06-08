@@ -26,10 +26,90 @@
                         Filie-se
                     </a>
                 </li>
-
-
-
-
+                <!-- Ícone de contato (email) sempre público -->
+                <li class="relative group" style="position: relative;">
+                    <button type="button" id="contact-btn"
+                        style="display: flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.75rem; border-radius: 0.375rem; background: transparent; border: none; cursor: pointer;"
+                        title="Contato"
+                        aria-haspopup="true" aria-expanded="false">
+                        <!-- Ícone envelope -->
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            style="width: 24px; height: 24px; color: black; flex-shrink: 0;"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m0 8H3a2 2 0 01-2-2V8a2 2 0 012-2h18a2 2 0 012 2v6a2 2 0 01-2 2z" />
+                        </svg>
+                        <!-- Seta para baixo -->
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            style="width: 16px; height: 16px; color: black;"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <ul id="contact-dropdown"
+                        style="position: absolute; right: 0; margin-top: 0.5rem; width: 320px; background: white; border: 1px solid #ddd; border-radius: 0.375rem; box-shadow: 0 4px 6px rgb(0 0 0 / 0.1); padding: 0.5rem 0; list-style: none; display: none; z-index: 9999;">
+                        <!-- Cada item -->
+                        <li>
+                            <a href="mailto:Sinatrandf@sinatrandf.com.br"
+                                style="display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; text-decoration: none; color: #111;"
+                                onmouseover="this.style.backgroundColor='#f3f4f6'" onmouseout="this.style.backgroundColor='transparent'">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    style="width: 20px; height: 20px; color: #2563eb; flex-shrink: 0;"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 12h.01M8 12h.01M12 12h.01M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7M3 7h18M3 7l9 6 9-6" />
+                                </svg>
+                                Sinatrandf@sinatrandf.com.br
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:Atendimento@sinatrandf.com.br"
+                                style="display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; text-decoration: none; color: #111;"
+                                onmouseover="this.style.backgroundColor='#f3f4f6'" onmouseout="this.style.backgroundColor='transparent'">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    style="width: 20px; height: 20px; color: #2563eb; flex-shrink: 0;"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 12h.01M8 12h.01M12 12h.01M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7M3 7h18M3 7l9 6 9-6" />
+                                </svg>
+                                Atendimento@sinatrandf.com.br
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:Financeiro@sinatrandf.com.br"
+                                style="display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; text-decoration: none; color: #111;"
+                                onmouseover="this.style.backgroundColor='#f3f4f6'" onmouseout="this.style.backgroundColor='transparent'">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    style="width: 20px; height: 20px; color: #2563eb; flex-shrink: 0;"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 12h.01M8 12h.01M12 12h.01M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7M3 7h18M3 7l9 6 9-6" />
+                                </svg>
+                                Financeiro@sinatrandf.com.br
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:Juridico@sinatrandf.com.br"
+                                style="display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; text-decoration: none; color: #111;"
+                                onmouseover="this.style.backgroundColor='#f3f4f6'" onmouseout="this.style.backgroundColor='transparent'">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    style="width: 20px; height: 20px; color: #2563eb; flex-shrink: 0;"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 12h.01M8 12h.01M12 12h.01M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7M3 7h18M3 7l9 6 9-6" />
+                                </svg>
+                                Juridico@sinatrandf.com.br
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:Presidencia@sinatrandf.com.br"
+                                style="display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; text-decoration: none; color: #111;"
+                                onmouseover="this.style.backgroundColor='#f3f4f6'" onmouseout="this.style.backgroundColor='transparent'">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    style="width: 20px; height: 20px; color: #2563eb; flex-shrink: 0;"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 12h.01M8 12h.01M12 12h.01M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7M3 7h18M3 7l9 6 9-6" />
+                                </svg>
+                                Presidencia@sinatrandf.com.br
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 @auth
                 @if(auth()->user()->is_admin ?? false)
                 <li>
@@ -209,7 +289,7 @@
                     </button>
 
                     <ul id="contact-dropdown"
-                        style="position: absolute; right: 0; margin-top: 0.5rem; width: 240px; background: white; border: 1px solid #ddd; border-radius: 0.375rem; box-shadow: 0 4px 6px rgb(0 0 0 / 0.1); padding: 0.5rem 0; list-style: none; display: none; z-index: 9999;">
+                        style="position: absolute; right: 0; margin-top: 0.5rem; width: 320px; background: white; border: 1px solid #ddd; border-radius: 0.375rem; box-shadow: 0 4px 6px rgb(0 0 0 / 0.1); padding: 0.5rem 0; list-style: none; display: none; z-index: 9999;">
                         <!-- Cada item -->
                         <li>
                             <a href="mailto:Sinatrandf@sinatrandf.com.br"
