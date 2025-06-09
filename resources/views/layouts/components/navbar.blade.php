@@ -11,7 +11,7 @@
 
         {{-- Botão Mobile (Hamburguer) --}}
         <button id="navbar-toggle"
-                class="sm:hidden p- rounded text-black focus:outline-none z-50"
+                class="sm:hidden p-2 rounded text-black focus:outline-none z-50"
                 style="margin-right: 0;">
             <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -101,6 +101,17 @@
         </div>
     </div>
 
+    {{-- Menu Mobile --}}
+    <div id="navbar-mobile-menu"
+         class="sm:hidden hidden w-full px-4 pb-4 flex-col gap-3 animate-slide-down">
+        <ul class="flex flex-col gap-2 text-black bg-white rounded-lg shadow-md p-2">
+            <li><a href="{{ route('home') }}" class="block py-2 px-3 text-base rounded hover:bg-gray-100">Início</a></li>
+            <li><a href="{{ route('sobre') }}" class="block py-2 px-3 text-base rounded hover:bg-gray-100">Sobre</a></li>
+            <li><a href="{{ url('/legislacao') }}" class="block py-2 px-3 text-base rounded hover:bg-gray-100">Legislação</a></li>
+            <li><a href="{{ route('convocacoes.index') }}" class="block py-2 px-3 text-base rounded hover:bg-gray-100">Convocações</a></li>
+        </ul>
+    </div>
+
     {{-- Botões Mobile: linha separada, alinhados à direita --}}
     <div class="sm:hidden flex flex-wrap justify-end gap-2 px-4 mt-1 mb-1">
         <a href="{{ route('filiacao.create') }}"
@@ -151,12 +162,18 @@
 
 {{-- JavaScript simples para alternar menu mobile --}}
 <script>
-    document.getElementById('navbar-toggle').addEventListener('click', function () {
-        const mobileMenu = document.getElementById('navbar-mobile-menu');
-        mobileMenu.classList.toggle('hidden');
-    });
-
     document.addEventListener('DOMContentLoaded', function () {
+        // Garante que o botão hamburguer funcione mesmo após upload/FTP
+        var navbarToggle = document.getElementById('navbar-toggle');
+        if (navbarToggle) {
+            navbarToggle.addEventListener('click', function () {
+                var mobileMenu = document.getElementById('navbar-mobile-menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.toggle('hidden');
+                }
+            });
+        }
+
         // Desktop dropdowns
         function setupDropdown(btnId, dropdownId) {
             const btn = document.getElementById(btnId);
