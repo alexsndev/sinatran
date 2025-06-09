@@ -41,7 +41,7 @@
                         @endphp
 
                         @if ($loopIndex === 0)
-                            <span class="absolute top-3 left-3 bg-yellow-400 text-xs font-bold px-3 py-1 rounded-full shadow text-gray-900 z-10">Destaque</span>
+                            <span class="absolute top-3 left-3 bg-white text-xs font-bold px-3 py-1 rounded-full shadow text-gray-900 z-10">Destaque</span>
                         @endif
                         @if ($isNovo)
                             <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow z-10">Novo</span>

@@ -35,8 +35,8 @@
         {{-- Botões Desktop --}}
         <div class="hidden sm:flex items-center gap-2 ml-4 relative z-40">
             <a href="{{ route('filiacao.create') }}"
-               class="py-1 px-3 text-sm font-medium border border-yellow-400 text-black bg-yellow-400 rounded flex items-center gap-2 hover:bg-[#dbfc03] hover:text-yellow-900 hover:shadow transition"
-               style="background: #fde047; border-radius: 0.375rem; transition: background 0.2s, color 0.2s;">
+               class="py-1 px-3 text-sm font-medium border border-[#dbfc03] text-black bg-[#dbfc03] rounded flex items-center gap-2 hover:bg-[#dbfc03] hover:text-yellow-900 hover: transition"
+               style="background: rgb(219 252 3 / var(--tw-bg-opacity, 1)); border-radius: 0.375rem; border-color: #dbfc03; transition: background 0.2s, color 0.2s;">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -119,9 +119,9 @@
     {{-- Botões Mobile: linha separada, alinhados à direita --}}
     <div class="sm:hidden flex flex-wrap justify-end gap-2 px-4 mt-1 mb-1">
         <a href="{{ route('filiacao.create') }}"
-           class="py-1 px-3 text-xs font-medium border border-yellow-400 text-black bg-yellow-400 rounded flex items-center gap-2 hover:bg-[#dbfc03] hover:text-yellow-900 hover:shadow transition"
-           style="background: #fde047; border-radius: 0.375rem; transition: background 0.2s, color 0.2s;">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           class="py-1 px-3 text-xs font-medium  text-black bg-[#dbfc03] rounded flex items-center gap-2 hover:bg-[#dbfc03] hover:text-yellow-900 hover: transition"
+           style="background: rgb(219 252 3 / var(--tw-bg-opacity, 1)); border-radius: 0.375rem; border-color: #dbfc03; transition: background 0.2s, color 0.2s;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
             </svg>
             Filie-se
@@ -137,21 +137,42 @@
                 </svg>
             </button>
             <div id="profile-dropdown-mobile" class="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg py-1 z-50 hidden">
-bur                @auth
-                    <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Perfil</a>
+                @auth
+                    <a href="{{ route('profile.edit') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 20c0-3.314 3.582-6 8-6s8 2.686 8 6"/></svg>
+                        Perfil
+                    </a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Sair</button>
+                        <button type="submit" class="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7"/></svg>
+                            Sair
+                        </button>
                     </form>
                     @if(auth()->user()->is_admin ?? false)
-                        <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Painel Admin</a>
-                        <a href="{{ route('admin.noticias.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Admin Notícias</a>
+                        <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3v4H8V3"/></svg>
+                            Painel Admin
+                        </a>
+                        <a href="{{ route('admin.noticias.index') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h4l2-2h6a2 2 0 012 2v12a2 2 0 01-2 2z"/></svg>
+                            Admin Notícias
+                        </a>
                     @else
-                        <a href="{{ route('convocacoes.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Minhas Convocações</a>
+                        <a href="{{ route('convocacoes.index') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            Minhas Convocações
+                        </a>
                     @endif
                 @else
-                    <a href="{{ route('login') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Logar</a>
-                    <a href="{{ route('register') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Registrar</a>
+                    <a href="{{ route('login') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        Logar
+                    </a>
+                    <a href="{{ route('register') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                        Registrar
+                    </a>
                 @endauth
             </div>
         </div>
@@ -165,11 +186,26 @@ bur                @auth
                 </svg>
             </button>
             <div id="contact-dropdown-mobile" class="absolute right-0 mt-2 w-64 bg-white border rounded shadow-lg py-1 z-50 hidden">
-                <a href="mailto:Sinatrandf@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Sinatrandf@sinatrandf.com.br</a>
-                <a href="mailto:Atendimento@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Atendimento@sinatrandf.com.br</a>
-                <a href="mailto:Financeiro@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Financeiro@sinatrandf.com.br</a>
-                <a href="mailto:Juridico@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Juridico@sinatrandf.com.br</a>
-                <a href="mailto:Presidencia@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Presidencia@sinatrandf.com.br</a>
+                <a href="mailto:Sinatrandf@sinatrandf.com.br" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                    <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm-8 0v1a4 4 0 008 0v-1"/></svg>
+                    Geral
+                </a>
+                <a href="mailto:Atendimento@sinatrandf.com.br" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm-8 0v1a4 4 0 008 0v-1"/></svg>
+                    Atendimento
+                </a>
+                <a href="mailto:Financeiro@sinatrandf.com.br" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 0V4m0 8v8"/></svg>
+                    Financeiro
+                </a>
+                <a href="mailto:Juridico@sinatrandf.com.br" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                    <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m-6 0h6"/></svg>
+                    Jurídico
+                </a>
+                <a href="mailto:Presidencia@sinatrandf.com.br" class="flex items-center gap-2 px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 20v-2a4 4 0 014-4h0a4 4 0 014 4v2"/></svg>
+                    Presidência
+                </a>
             </div>
         </div>
     </div>
