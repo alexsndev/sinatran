@@ -1,6 +1,16 @@
 <nav class="bg-white w-full z-50" style="border-bottom: none;">
     <div class="container mx-auto flex items-center justify-between px-4 pt-2 pb-1 sm:py-2 relative">
-        {{-- Botão Mobile (Hamburguer) - TESTE: no lugar da logo --}}
+        {{-- Logo e Título --}}
+        <a href="{{ route('home') }}" class="flex items-center min-w-0 gap-2 text-black no-underline">
+            <img src="{{ asset('images/sinatrandf.png') }}" alt="Logo Sinatrandf"
+                 class="h-16 sm:h-16 w-auto"> {{-- h-16 para mobile e desktop --}}
+            <span class="text-xs sm:text-sm md:text-base font-semibold max-w-[300px] sm:max-w-[220px] leading-tight">
+                SINDICATO DOS AGENTES DE <br> TRÂNSITO  DO DISTRITO FEDERAL
+            </span>
+        </a>
+
+        {{-- Botão Mobile (Hamburguer) --}}
+        {{-- Usando Heroicons (https://heroicons.com/) via SVG inline --}}
         <button id="navbar-toggle"
                 class="sm:hidden flex items-center justify-center p-0 m-0 rounded text-black focus:outline-none z-50"
                 aria-label="Abrir menu"
@@ -10,15 +20,6 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
         </button>
-
-        {{-- Logo e Título --}}
-        <a href="{{ route('home') }}" class="flex items-center min-w-0 gap-2 text-black no-underline">
-            <img src="{{ asset('images/sinatrandf.png') }}" alt="Logo Sinatrandf"
-                 class="h-16 sm:h-16 w-auto"> {{-- h-16 para mobile e desktop --}}
-            <span class="text-xs sm:text-sm md:text-base font-semibold max-w-[300px] sm:max-w-[220px] leading-tight">
-                SINDICATO DOS AGENTES DE <br> TRÂNSITO  DO DISTRITO FEDERAL
-            </span>
-        </a>
 
         {{-- Menu de Navegação Desktop --}}
         <ul id="navbar-menu"
