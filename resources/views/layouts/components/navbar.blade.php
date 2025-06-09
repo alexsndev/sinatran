@@ -15,7 +15,7 @@
                 aria-label="Abrir menu"
                 style="margin-right: 0; background: none; border: none;">
             {{-- SVG externo: menu hamburguer usando imagem SVG baixada --}}
-            <img src="{{ asset('image/menu.svg') }}" alt="Menu" class="w-10 h-10" draggable="false" />
+            <img src="{{ asset('images/menu.svg') }}" alt="Menu" class="w-10 h-10" draggable="false" />
         </button>
 
         {{-- Menu de Navegação Desktop --}}
