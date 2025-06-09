@@ -8,6 +8,7 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\NoticiaController as AdminNoticiaController;
 use App\Http\Controllers\Admin\CategoriaController as AdminCategoriaController;
+use App\Http\Controllers\Admin\FiliacaoAdminController;
 use App\Http\Controllers\ConvocacaoController;
 use App\Http\Controllers\FiliacaoController;
 /*
@@ -58,6 +59,9 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
 
     Route::resource('noticias', AdminNoticiaController::class);
     Route::resource('categorias', AdminCategoriaController::class);
+
+    // CRUD de filiação para admin
+    Route::resource('filiacao', FiliacaoAdminController::class);
 });
 
 /*

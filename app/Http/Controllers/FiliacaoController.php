@@ -67,3 +67,37 @@ class FiliacaoController extends Controller
         return redirect()->route('filiacao.create')->with('success', 'Filiação enviada com sucesso!');
     }
 }
+
+// DICA DE DIAGNÓSTICO:
+// 1. Verifique se o seeder realmente rodou na base correta e se a tabela está populada.
+// 2. O controller público (FiliacaoController) não tem método index, então a view de admin não usa esse controller.
+// 3. O CRUD de admin usa o controller Admin\FiliacaoAdminController. O seeder deve popular a tabela 'filiacaos'.
+// 4. No Tinker, rode: Filiacao::count(); para ver se há registros.
+// 5. Se não há registros, rode: php artisan migrate:fresh --seed
+// 6. Se há registros, mas não aparecem, veja se o controller admin está usando o model correto e a view correta.
+// 7. Se o nome da tabela está diferente (ex: 'filiacaos' vs 'filiacoes'), ajuste o model Filiacao:
+
+// namespace App\Models;
+
+// use Illuminate\Database\Eloquent\Model;
+
+// class Filiacao extends Model
+// {
+//     // ...existing code...
+//     protected $table = 'filiacaos'; // Confirme se o nome da tabela está correto
+//     // ...existing code...
+// }
+
+// Remova qualquer código PHP do tipo "<?php" ou comandos artisan do prompt do Tinker.
+// Para contar registros no Tinker, digite apenas:
+
+// e pressione Enter.
+// Não coloque "<?php" ou comandos artisan dentro do Tinker.
+// Se \App\Models\Filiacao::count() retornou 0, significa que a tabela está vazia.
+// Para popular com os dados do seeder, rode:
+    // php artisan migrate:fresh --seed
+// Isso irá recriar as tabelas e rodar todos os seeders, preenchendo a tabela 'filiacaos'.
+// Depois, rode novamente no Tinker:
+    // \App\Models\Filiacao::count()
+// O resultado deve ser maior que 0.
+// Se continuar 0, confira se o seeder está registrado em DatabaseSeeder.php e se não há erro no seeder.

@@ -73,9 +73,7 @@
                             <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Sair</button>
                         </form>
                         @if(auth()->user()->is_admin ?? false)
-                            <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Painel Admin</a>
-                            <a href="{{ route('admin.noticias.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Admin Notícias</a>
-                            {{-- <a href="{{ route('admin.usuarios.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Usuários</a> --}}
+                            <a href="{{ route('admin.filiacao.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Admin Filiações</a>
                         @else
                             <a href="{{ route('convocacoes.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Minhas Convocações</a>
                         @endif
