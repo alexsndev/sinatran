@@ -4,6 +4,13 @@
 
 @section('content')
 
+    <style>
+        /* Remove underline de todos os links e forçar no hover/focus */
+        .no-underline, a, a:visited, a:active, a:focus, a:hover {
+            text-decoration: none !important;
+        }
+    </style>
+
     <section class="mt-0 max-w-7xl mx-auto px-2 sm:px-6">
 
         {{-- Últimas Notícias --}}
