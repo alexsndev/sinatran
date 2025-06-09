@@ -5,7 +5,7 @@
             <img src="{{ asset('images/sinatrandf.png') }}" alt="Logo Sinatrandf"
                  class="h-16 sm:h-16 w-auto"> {{-- h-16 para mobile e desktop --}}
             <span class="text-xs sm:text-sm md:text-base font-semibold max-w-[300px] sm:max-w-[220px] leading-tight">
-                SINDICATO DOS AGENTES DE TRÂNSITO DO DF
+                SINDICATO DOS AGENTES DE <br> TRÂNSITO  DO DISTRITO FEDERAL
             </span>
         </a>
 
