@@ -14,12 +14,8 @@
                 class="sm:hidden flex items-center justify-center p-0 m-0 rounded text-black focus:outline-none z-50"
                 aria-label="Abrir menu"
                 style="margin-right: 0; background: none; border: none;">
-            {{-- SVG sofisticado: menu hambúrguer "menu dots" (três pontos) --}}
-            <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
-                <circle cx="8" cy="20" r="3.5" fill="currentColor"/>
-                <circle cx="20" cy="20" r="3.5" fill="currentColor"/>
-                <circle cx="32" cy="20" r="3.5" fill="currentColor"/>
-            </svg>
+            {{-- SVG externo: menu hamburguer usando imagem SVG baixada --}}
+            <img src="{{ asset('image/menu.svg') }}" alt="Menu" class="w-10 h-10" draggable="false" />
         </button>
 
         {{-- Menu de Navegação Desktop --}}
