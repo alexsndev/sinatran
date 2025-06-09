@@ -137,11 +137,22 @@
                 </svg>
             </button>
             <div id="profile-dropdown-mobile" class="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg py-1 z-50 hidden">
-                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Perfil</a>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-100">Sair</button>
-                </form>
+bur                @auth
+                    <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Perfil</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Sair</button>
+                    </form>
+                    @if(auth()->user()->is_admin ?? false)
+                        <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Painel Admin</a>
+                        <a href="{{ route('admin.noticias.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Admin Notícias</a>
+                    @else
+                        <a href="{{ route('convocacoes.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Minhas Convocações</a>
+                    @endif
+                @else
+                    <a href="{{ route('login') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Logar</a>
+                    <a href="{{ route('register') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Registrar</a>
+                @endauth
             </div>
         </div>
         <div class="relative">
