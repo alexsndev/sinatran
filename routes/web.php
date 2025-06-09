@@ -67,8 +67,9 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
 */
 
 Route::middleware(['auth'])->group(function () {
+    // Redireciona dashboard para home após login
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return redirect()->route('home');
     })->middleware(['verified'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

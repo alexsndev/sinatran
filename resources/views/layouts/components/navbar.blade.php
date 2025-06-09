@@ -1,18 +1,18 @@
 <nav class="bg-white w-full z-50" style="border-bottom: none;">
     <div class="container mx-auto flex items-center justify-between px-4 pt-2 pb-1 sm:py-2 relative">
         {{-- Logo e Título --}}
-        <a href="{{ route('home') }}" class="flex items-center min-w-0 gap-2 text-black no-underline">
+        <a href="{{ route('home') }}" class="flex flex-row items-center min-w-0 gap-2 text-black no-underline">
             <img src="{{ asset('images/sinatrandf.png') }}" alt="Logo Sinatrandf"
-                 class="h-16 sm:h-16 w-auto"> {{-- h-16 para mobile e desktop --}}
-            <span class="text-xs sm:text-sm md:text-base font-semibold max-w-[300px] sm:max-w-[220px] leading-tight">
-                SINDICATO DOS AGENTES DE <br> TRÂNSITO  DO DISTRITO FEDERAL
+                 class="h-16 sm:h-16 w-auto">
+            <span class="text-xs sm:text-sm md:text-base font-semibold max-w-[300px] sm:max-w-[400px] leading-tight whitespace-normal" style="line-height:1.2;">
+                SINDICATO DOS AGENTES DE<br>TRÂNSITO DO DISTRITO FEDERAL
             </span>
         </a>
 
         {{-- Botão Mobile (Hamburguer) --}}
         {{-- Usando Heroicons (https://heroicons.com/) via SVG inline --}}
         <button id="navbar-toggle"
-                class="flex items-center justify-center p-0 m-0 rounded text-black focus:outline-none z-50"
+                class="block sm:hidden flex items-center justify-center p-0 m-0 rounded text-black focus:outline-none z-50"
                 aria-label="Abrir menu"
                 style="margin-right: 0; background: none; border: none;">
             {{-- Heroicon: Bars-3 --}}
@@ -22,19 +22,21 @@
         </button>
 
         {{-- Menu de Navegação Desktop --}}
-        <ul id="navbar-menu"
-            class="hidden sm:flex flex-row items-center gap-3 text-sm text-black whitespace-nowrap">
-            <li><a href="{{ route('home') }}" class="py-1 px-3 rounded hover:bg-gray-100">Início</a></li>
-            <li><a href="{{ route('sobre') }}" class="py-1 px-3 rounded hover:bg-gray-100">Sobre</a></li>
-            <li><a href="{{ url('/legislacao') }}" class="py-1 px-3 rounded hover:bg-gray-100">Legislação</a></li>
-            <li><a href="{{ route('convocacoes.index') }}" class="py-1 px-3 rounded hover:bg-gray-100">Convocações</a></li>
-        </ul>
+        <div class="hidden sm:flex flex-1 justify-center">
+            <ul id="navbar-menu"
+                class="flex flex-row items-center gap-3 text-sm text-black whitespace-nowrap">
+                <li><a href="{{ route('home') }}" class="py-1 px-3 rounded hover:bg-gray-100">Início</a></li>
+                <li><a href="{{ route('sobre') }}" class="py-1 px-3 rounded hover:bg-gray-100">Sobre</a></li>
+                <li><a href="{{ url('/legislacao') }}" class="py-1 px-3 rounded hover:bg-gray-100">Legislação</a></li>
+                <li><a href="{{ route('convocacoes.index') }}" class="py-1 px-3 rounded hover:bg-gray-100">Convocações</a></li>
+            </ul>
+        </div>
 
         {{-- Botões Desktop --}}
         <div class="hidden sm:flex items-center gap-2 ml-4 relative z-40">
             <a href="{{ route('filiacao.create') }}"
-               class="py-1 px-3 text-sm font-medium border border-yellow-400 text-yellow-900 bg-[#dbfc03] rounded-full flex items-center gap-2 hover:bg-yellow-400 hover:text-black hover:shadow transition"
-               style="background: rgb(219 252 3 / var(--tw-bg-opacity, 1)); transition: background 0.2s, color 0.2s;">
+               class="py-1 px-3 text-sm font-medium border border-yellow-400 text-black bg-yellow-400 rounded flex items-center gap-2 hover:bg-[#dbfc03] hover:text-yellow-900 hover:shadow transition"
+               style="background: #fde047; border-radius: 0.375rem; transition: background 0.2s, color 0.2s;">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                 </svg>
