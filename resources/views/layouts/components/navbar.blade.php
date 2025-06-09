@@ -1,76 +1,38 @@
-<nav class="bg-white border-b w-full z-50">
-    <div class="container mx-auto flex items-center justify-between px-4 py-3 sm:py-2 relative">
+<nav class="bg-white w-full z-50" style="border-bottom: none;">
+    <div class="container mx-auto flex items-center justify-between px-4 pt-2 pb-1 sm:py-2 relative">
         {{-- Logo e Título --}}
         <a href="{{ route('home') }}" class="flex items-center min-w-0 gap-2 text-black no-underline">
-            <img src="{{ asset('images/sinatrandf.png') }}" alt="Logo Sinatrandf" class="h-12 sm:h-16 w-auto">
+            <img src="{{ asset('images/sinatrandf.png') }}" alt="Logo Sinatrandf"
+                 class="h-16 sm:h-16 w-auto"> {{-- h-16 para mobile e desktop --}}
             <span class="text-xs sm:text-sm md:text-base font-semibold max-w-[300px] sm:max-w-[220px] leading-tight">
-                <span class="block sm:hidden">SINATRAN-DF</span>
-                <span class="hidden sm:block">SINDICATO DOS AGENTES DE TRÂNSITO DO DF</span>
+                SINDICATO DOS AGENTES DE TRÂNSITO DO DF
             </span>
         </a>
 
-        {{-- Botões Mobile visíveis sempre --}}
-        <div class="flex sm:hidden items-center gap-2 ml-4 relative z-40">
-            <a href="{{ route('filiacao.create') }}"
-               class="py-1 px-3 text-xs font-medium border border-yellow-400 text-black bg-yellow-400 rounded flex items-center gap-2 hover:bg-[#dbfc03] hover:text-yellow-900 hover:shadow transition"
-               style="background: #fde047; border-radius: 0.375rem; transition: background 0.2s, color 0.2s;">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                </svg>
-                Filie-se
-            </a>
-
-            <div class="relative">
-                <button id="profile-btn-mobile" title="Perfil"
-                        class="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24"
-                         stroke="currentColor">
-                        <circle cx="12" cy="8" r="4" stroke-width="2"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M4 20c0-3.314 3.582-6 8-6s8 2.686 8 6"/>
-                    </svg>
-                </button>
-                <div id="profile-dropdown-mobile" class="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg py-1 z-50 hidden">
-                    <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Perfil</a>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Sair</button>
-                    </form>
-                </div>
-            </div>
-            <div class="relative">
-                <button id="contact-btn-mobile" title="Contato"
-                        class="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24"
-                         stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m0 8H3a2 2 0 01-2-2V8a2 2 0 012-2h18a2 2 0 012 2v6a2 2 0 01-2 2z"/>
-                    </svg>
-                </button>
-                <div id="contact-dropdown-mobile" class="absolute right-0 mt-2 w-64 bg-white border rounded shadow-lg py-1 z-50 hidden">
-                    <a href="mailto:Sinatrandf@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Sinatrandf@sinatrandf.com.br</a>
-                    <a href="mailto:Atendimento@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Atendimento@sinatrandf.com.br</a>
-                    <a href="mailto:Financeiro@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Financeiro@sinatrandf.com.br</a>
-                    <a href="mailto:Juridico@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Juridico@sinatrandf.com.br</a>
-                    <a href="mailto:Presidencia@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Presidencia@sinatrandf.com.br</a>
-                </div>
-            </div>
-        </div>
+        {{-- Botão Mobile (Hamburguer) --}}
+        <button id="navbar-toggle"
+                class="sm:hidden p- rounded text-black focus:outline-none z-50"
+                style="margin-right: 0;">
+            <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
 
         {{-- Menu de Navegação Desktop --}}
         <ul id="navbar-menu"
             class="hidden sm:flex flex-row items-center gap-3 text-sm text-black whitespace-nowrap">
-            <li><a href="{{ route('home') }}" class="py-1 px-3 rounded hover:bg-gray-100 hover:no-underline" style="background:none !important;">Início</a></li>
-            <li><a href="{{ route('sobre') }}" class="py-1 px-3 rounded hover:bg-gray-100 hover:no-underline" style="background:none !important;">Sobre</a></li>
-            <li><a href="{{ url('/legislacao') }}" class="py-1 px-3 rounded hover:bg-gray-100 hover:no-underline" style="background:none !important;">Legislação</a></li>
-            <li><a href="{{ route('convocacoes.index') }}" class="py-1 px-3 rounded hover:bg-gray-100 hover:no-underline" style="background:none !important;">Convocações</a></li>
+            <li><a href="{{ route('home') }}" class="py-1 px-3 rounded hover:bg-gray-100">Início</a></li>
+            <li><a href="{{ route('sobre') }}" class="py-1 px-3 rounded hover:bg-gray-100">Sobre</a></li>
+            <li><a href="{{ url('/legislacao') }}" class="py-1 px-3 rounded hover:bg-gray-100">Legislação</a></li>
+            <li><a href="{{ route('convocacoes.index') }}" class="py-1 px-3 rounded hover:bg-gray-100">Convocações</a></li>
         </ul>
 
         {{-- Botões Desktop --}}
         <div class="hidden sm:flex items-center gap-2 ml-4 relative z-40">
             <a href="{{ route('filiacao.create') }}"
-               class="py-1 px-3 text-sm font-medium border border-yellow-400 text-black bg-yellow-400 rounded flex items-center gap-2 hover:bg-[#dbfc03] hover:text-yellow-900 hover:shadow transition"
-               style="background: #fde047; border-radius: 0.375rem; transition: background 0.2s, color 0.2s;">
+               class="py-1 px-3 text-sm font-medium border border-yellow-400 text-yellow-900 bg-[#dbfc03] rounded-full flex items-center gap-2 hover:bg-yellow-400 hover:text-black hover:shadow transition"
+               style="background: rgb(219 252 3 / var(--tw-bg-opacity, 1)); transition: background 0.2s, color 0.2s;">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -101,21 +63,21 @@
                 </button>
                 <div id="profile-dropdown" class="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg py-1 z-50 hidden">
                     @auth
-                        <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100 hover:no-underline">Perfil</a>
+                        <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Perfil</a>
                         <form method="POST" action="{{ route('logout') }}" id="logout-form-desktop">
                             @csrf
-                            <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100 hover:no-underline">Sair</button>
+                            <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Sair</button>
                         </form>
                         @if(auth()->user()->is_admin ?? false)
-                            <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100 hover:no-underline">Painel Admin</a>
-                            <a href="{{ route('admin.noticias.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100 hover:no-underline">Admin Notícias</a>
-                            {{-- <a href="{{ route('admin.usuarios.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100 hover:no-underline">Usuários</a> --}}
+                            <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Painel Admin</a>
+                            <a href="{{ route('admin.noticias.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Admin Notícias</a>
+                            {{-- <a href="{{ route('admin.usuarios.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Usuários</a> --}}
                         @else
-                            <a href="{{ route('convocacoes.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100 hover:no-underline">Minhas Convocações</a>
+                            <a href="{{ route('convocacoes.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Minhas Convocações</a>
                         @endif
                     @else
-                        <a href="{{ route('login') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100 hover:no-underline">Logar</a>
-                        <a href="{{ route('register') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100 hover:no-underline">Registrar</a>
+                        <a href="{{ route('login') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Logar</a>
+                        <a href="{{ route('register') }}" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Registrar</a>
                     @endauth
                 </div>
             </div>
@@ -129,34 +91,61 @@
                     </svg>
                 </button>
                 <div id="contact-dropdown" class="absolute right-0 mt-2 w-64 bg-white border rounded shadow-lg py-1 z-50 hidden">
-                    <a href="mailto:Sinatrandf@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Sinatrandf@sinatrandf.com.br</a>
-                    <a href="mailto:Atendimento@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Atendimento@sinatrandf.com.br</a>
-                    <a href="mailto:Financeiro@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Financeiro@sinatrandf.com.br</a>
-                    <a href="mailto:Juridico@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Juridico@sinatrandf.com.br</a>
-                    <a href="mailto:Presidencia@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:no-underline">Presidencia@sinatrandf.com.br</a>
+                    <a href="mailto:Sinatrandf@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Sinatrandf@sinatrandf.com.br</a>
+                    <a href="mailto:Atendimento@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Atendimento@sinatrandf.com.br</a>
+                    <a href="mailto:Financeiro@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Financeiro@sinatrandf.com.br</a>
+                    <a href="mailto:Juridico@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Juridico@sinatrandf.com.br</a>
+                    <a href="mailto:Presidencia@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-yellow-50 hover:text-yellow-700 active:bg-yellow-100">Presidencia@sinatrandf.com.br</a>
                 </div>
             </div>
         </div>
-
-        {{-- Botão Mobile (Hamburguer) --}}
-        <button id="navbar-toggle"
-                class="sm:hidden p-2 rounded text-black focus:outline-none ml-auto z-50">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-        </button>
     </div>
 
-    {{-- Menu Mobile --}}
-    <div id="navbar-mobile-menu"
-         class="sm:hidden hidden w-full px-4 pb-4 flex-col gap-3 animate-slide-down">
-        <ul class="flex flex-col gap-2 text-black bg-white rounded-lg shadow-md p-2">
-            <li><a href="{{ route('home') }}" class="block py-2 px-3 text-base rounded hover:bg-gray-100">Início</a></li>
-            <li><a href="{{ route('sobre') }}" class="block py-2 px-3 text-base rounded hover:bg-gray-100">Sobre</a></li>
-            <li><a href="{{ url('/legislacao') }}" class="block py-2 px-3 text-base rounded hover:bg-gray-100">Legislação</a></li>
-            <li><a href="{{ route('convocacoes.index') }}" class="block py-2 px-3 text-base rounded hover:bg-gray-100">Convocações</a></li>
-        </ul>
+    {{-- Botões Mobile: linha separada, alinhados à direita --}}
+    <div class="sm:hidden flex flex-wrap justify-end gap-2 px-4 mt-1 mb-1">
+        <a href="{{ route('filiacao.create') }}"
+           class="py-1 px-3 text-xs font-medium border border-yellow-400 text-black bg-yellow-400 rounded flex items-center gap-2 hover:bg-[#dbfc03] hover:text-yellow-900 hover:shadow transition"
+           style="background: #fde047; border-radius: 0.375rem; transition: background 0.2s, color 0.2s;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+            Filie-se
+        </a>
+        <div class="relative">
+            <button id="profile-btn-mobile" title="Perfil"
+                    class="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <circle cx="12" cy="8" r="4" stroke-width="2"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 20c0-3.314 3.582-6 8-6s8 2.686 8 6"/>
+                </svg>
+            </button>
+            <div id="profile-dropdown-mobile" class="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg py-1 z-50 hidden">
+                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Perfil</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-100">Sair</button>
+                </form>
+            </div>
+        </div>
+        <div class="relative">
+            <button id="contact-btn-mobile" title="Contato"
+                    class="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m0 8H3a2 2 0 01-2-2V8a2 2 0 012-2h18a2 2 0 012 2v6a2 2 0 01-2 2z"/>
+                </svg>
+            </button>
+            <div id="contact-dropdown-mobile" class="absolute right-0 mt-2 w-64 bg-white border rounded shadow-lg py-1 z-50 hidden">
+                <a href="mailto:Sinatrandf@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Sinatrandf@sinatrandf.com.br</a>
+                <a href="mailto:Atendimento@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Atendimento@sinatrandf.com.br</a>
+                <a href="mailto:Financeiro@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Financeiro@sinatrandf.com.br</a>
+                <a href="mailto:Juridico@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Juridico@sinatrandf.com.br</a>
+                <a href="mailto:Presidencia@sinatrandf.com.br" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Presidencia@sinatrandf.com.br</a>
+            </div>
+        </div>
     </div>
 </nav>
 
@@ -230,27 +219,5 @@
             right: 0;
             left: auto;
         }
-    }
-    /* Remove underline em todos os links do navbar, inclusive no hover */
-    nav a,
-    nav a:visited,
-    nav a:active,
-    nav a:hover,
-    nav a:focus {
-        text-decoration: none !important;
-    }
-    nav .hover\:no-underline:hover {
-        text-decoration: none !important;
-    }
-    nav button,
-    nav button:focus,
-    nav button:active {
-        text-decoration: none !important;
-    }
-    /* Remove o azul claro do hover padrão do navegador */
-    nav a:hover, nav a:focus {
-        background-color: #f3f4f6 !important; /* gray-100 */
-        outline: none !important;
-        box-shadow: none !important;
     }
 </style>
