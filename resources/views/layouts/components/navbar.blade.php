@@ -11,11 +11,14 @@
 
         {{-- Botão Mobile (Hamburguer) --}}
         <button id="navbar-toggle"
-                class="sm:hidden p-2 rounded text-black focus:outline-none z-50"
-                style="margin-right: 0;">
-            <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"/>
+                class="sm:hidden flex items-center justify-center p-0 m-0 rounded text-black focus:outline-none z-50"
+                aria-label="Abrir menu"
+                style="margin-right: 0; background: none; border: none;">
+            {{-- SVG sofisticado: menu hambúrguer "menu dots" (três pontos) --}}
+            <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                <circle cx="8" cy="20" r="3.5" fill="currentColor"/>
+                <circle cx="20" cy="20" r="3.5" fill="currentColor"/>
+                <circle cx="32" cy="20" r="3.5" fill="currentColor"/>
             </svg>
         </button>
 
@@ -166,12 +169,12 @@
         // Garante que o botão hamburguer funcione mesmo após upload/FTP
         var navbarToggle = document.getElementById('navbar-toggle');
         if (navbarToggle) {
-            navbarToggle.addEventListener('click', function () {
+            navbarToggle.onclick = function () {
                 var mobileMenu = document.getElementById('navbar-mobile-menu');
                 if (mobileMenu) {
                     mobileMenu.classList.toggle('hidden');
                 }
-            });
+            };
         }
 
         // Desktop dropdowns
