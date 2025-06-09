@@ -12,11 +12,11 @@
         {{-- Botão Mobile (Hamburguer) --}}
         {{-- Usando Heroicons (https://heroicons.com/) via SVG inline --}}
         <button id="navbar-toggle"
-                class="sm:hidden flex items-center justify-center p-0 m-0 rounded text-black focus:outline-none z-50"
+                class="flex items-center justify-center p-0 m-0 rounded text-black focus:outline-none z-50"
                 aria-label="Abrir menu"
                 style="margin-right: 0; background: none; border: none;">
             {{-- Heroicon: Bars-3 --}}
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 menu-svg-force-visible" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
         </button>
@@ -238,5 +238,16 @@
             right: 0;
             left: auto;
         }
+    }
+
+    /* Diagnóstico: Força o ícone do menu a aparecer */
+    .menu-svg-force-visible, .menu-svg-force-visible * {
+        display: inline-block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        color: #000 !important;
+        stroke: #000 !important;
     }
 </style>
