@@ -79,8 +79,8 @@
 @extends('layouts.public')
 
 @section('content')
-<div class="max-w-4xl mx-auto px-4 sm:px-8 py-10">
-    <div class="bg-white/80 shadow-xl rounded-2xl border border-gray-200 p-8 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-2 sm:px-8 py-10">
+    <div class="bg-white/90 border border-gray-200 rounded-xl p-8 md:p-12 shadow-none">
         <h2 class="text-3xl font-extrabold text-center text-blue-800 mb-8 tracking-tight">Formulário de Filiação SINATRAN-DF</h2>
 
         @if(session('success'))
@@ -91,7 +91,7 @@
 
         <form action="{{ route('filiacao.store') }}" method="POST" class="space-y-8">
             @csrf
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div>
                     <label for="cep" class="block text-sm font-semibold text-gray-700 mb-1">CEP</label>
                     <input type="text" id="cep" name="cep" maxlength="9" placeholder="Ex: 70000-000"
@@ -333,12 +333,12 @@
 
             <div class="mt-8 flex justify-center">
                 <button type="submit"
-                    class="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 via-blue-600 to-blue-800 hover:from-blue-700 hover:to-green-600 text-gray-100 font-bold py-3 px-10 rounded-full shadow-xl transition-all duration-200 text-lg tracking-wide ring-2 ring-blue-200 hover:ring-green-400 focus:outline-none focus:ring-4 focus:ring-blue-300 animate-pulse hover:animate-none"
+                    class="inline-flex items-center gap-2 bg-[#dbfc03] text-black font-bold py-3 px-10 rounded-lg border border-[#dbfc03] hover:bg-yellow-300 transition text-base"
                     style="letter-spacing: 0.05em;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span class="uppercase drop-shadow font-extrabold" style="color: #f8fafc;">Enviar</span>
+                    <span class="uppercase font-bold">Enviar</span>
                 </button>
             </div>
         </form>

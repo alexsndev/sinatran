@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Filiacao;
+use App\Models\FiliacaoDependente;
 
 class FiliacaoController extends Controller
 {
@@ -13,54 +15,55 @@ class FiliacaoController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'cep' => 'required|string|max:9',
+        $validated = $request->validate([
+            'cep' => 'required|string|max:20',
             'endereco' => 'required|string|max:255',
-            'bairro' => 'required|string|max:255',
-            'cidade' => 'required|string|max:255',
+            'bairro' => 'required|string|max:100',
+            'cidade' => 'required|string|max:100',
             'uf' => 'required|string|max:2',
             'nome' => 'required|string|max:255',
             'matricula' => 'required|string|max:50',
-            'rg' => 'required|string|max:20',
-            'orgao_expedidor' => 'required|string|max:20',
-            'cpf' => 'required|string|max:14',
+            'rg' => 'required|string|max:50',
+            'orgao_expedidor' => 'required|string|max:50',
+            'cpf' => 'required|string|max:20',
             'data_nascimento' => 'required|date',
-            'naturalidade' => 'nullable|string|max:255',
-            'tipo_sanguineo' => 'nullable|string|max:5',
-            'sexo' => 'nullable|string|max:10',
+            'naturalidade' => 'nullable|string|max:100',
+            'tipo_sanguineo' => 'nullable|string|max:10',
+            'sexo' => 'nullable|string|max:20',
             'filiacao_pai' => 'nullable|string|max:255',
             'filiacao_mae' => 'nullable|string|max:255',
-            'cargo' => 'nullable|string|max:255',
+            'cargo' => 'nullable|string|max:100',
             'data_admissao' => 'nullable|date',
-            'situacao_servidor' => 'nullable|string|max:20',
-            'telefone1' => 'required|string|max:20',
-            'telefone2' => 'nullable|string|max:20',
-            'email_funcional' => 'nullable|email|max:255',
-            'email_pessoal' => 'nullable|email|max:255',
-            'estado_civil' => 'nullable|string|max:20',
-            'escolaridade' => 'nullable|string|max:20',
-            'formacao' => 'nullable|string|max:255',
+            'situacao_servidor' => 'nullable|string|max:50',
+            'telefone1' => 'required|string|max:30',
+            'telefone2' => 'nullable|string|max:30',
+            'email_funcional' => 'nullable|email|max:100',
+            'email_pessoal' => 'nullable|email|max:100',
+            'estado_civil' => 'nullable|string|max:30',
+            'escolaridade' => 'nullable|string|max:50',
+            'formacao' => 'nullable|string|max:100',
             'quantidade_dependentes' => 'nullable|integer|min:0|max:9',
-            'autoriza_envio' => 'nullable|string',
-            'nao_autoriza_envio' => 'nullable|string',
-            // Para os dependentes será tratado à parte
+            // ...other fields...
         ]);
 
-        // Validação dos dependentes (opcional)
-        $dependentes = [];
-        $qtd = $data['quantidade_dependentes'] ?? 0;
+        $filiacao = Filiacao::create($validated);
 
+        // Dependentes
+        $qtd = (int)($request->input('quantidade_dependentes', 0));
         for ($i = 1; $i <= $qtd; $i++) {
-            $dependentes[] = [
-                'nome' => $request->input("dependente_nome_$i"),
-                'parentesco' => $request->input("dependente_parentesco_$i"),
-                'data_nascimento' => $request->input("dependente_data_nascimento_$i"),
-            ];
+            $nome = $request->input("dependente_nome_$i");
+            $parentesco = $request->input("dependente_parentesco_$i");
+            $data_nascimento = $request->input("dependente_data_nascimento_$i");
+            if ($nome || $parentesco || $data_nascimento) {
+                FiliacaoDependente::create([
+                    'filiacao_id' => $filiacao->id,
+                    'nome' => $nome,
+                    'parentesco' => $parentesco,
+                    'data_nascimento' => $data_nascimento,
+                ]);
+            }
         }
 
-        // Aqui você pode salvar no banco, gerar PDF, enviar email, etc.
-
-        // Para teste, vamos só retornar os dados para ver
-        return back()->with('success', 'Formulário enviado com sucesso!')->withInput();
+        return redirect()->route('filiacao.create')->with('success', 'Filiação enviada com sucesso!');
     }
 }
