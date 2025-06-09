@@ -307,29 +307,32 @@
             </div>
 
             <div class="termo-container bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
-                <h3 class="text-lg font-bold mb-3 text-blue-800">Termo de Responsabilidade</h3>
-                <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-4">
-                    <li>Declaro que todas as informações fornecidas são verdadeiras e completas.</li>
-                    <li>Estou ciente das normas e regulamentos da SINATRAN-DF.</li>
-                    <li>Comprometo-me a cumprir todas as exigências legais para a filiação.</li>
-                    <li>Autorizo a verificação dos dados fornecidos para fins de comprovação.</li>
-                    <li>Declaro que não possuo pendências legais que possam impedir minha filiação.</li>
-                </ol>
-                <div class="flex items-center gap-4">
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="autoriza_envio" value="sim" id="autoriza_envio"
-                            class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500"
-                            {{ old('autoriza_envio') == 'sim' ? 'checked' : '' }}>
-                        <span class="ml-2 text-gray-700">Autorizo o envio de comunicações e informações.</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="nao_autoriza_envio" value="sim" id="nao_autoriza_envio"
-                            class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500"
-                            {{ old('nao_autoriza_envio') == 'sim' ? 'checked' : '' }}>
-                        <span class="ml-2 text-gray-700">Não autorizo o envio de comunicações.</span>
-                    </label>
-                </div>
-            </div>
+    <h3 class="text-lg font-bold mb-4 text-blue-800">Autorização e Ciência</h3>
+    <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-4">
+        <li>Declaro ter ciência e aceitar as condições constantes no Estatuto do SINATRAN/DF, comprometendo-me a cumprir todos os atos de minha responsabilidade junto a este sindicato.</li>
+        <li>DECLARO que este pedido de filiação está sendo submetido de livre e espontânea vontade e que estou ciente do conteúdo do Estatuto Social do Sindicato dos Agentes de Trânsito do Distrito Federal (SINATRAN-DF), ao qual faço adesão com o presente ato.</li>
+        <li>DECLARO estar ciente de que o valor das mensalidades e taxas extraordinárias (contribuições) é aprovado em Assembleia Geral da SINATRAN-DF, sendo as contribuições dos sindicalizados efetivos consignadas diretamente na folha de pagamento e devidas enquanto eu permanecer filiado, mesmo nos meses em que, por qualquer razão, o desconto em folha não for possível.</li>
+        <li>DECLARO estar ciente de que, para os sindicalizados conveniados, bem como para os sindicalizados efetivos cujo desconto em folha não seja possível, fica AUTORIZADO o débito em conta bancária, cartão de crédito, ou mesmo emissão de boleto bancário, o que não ocorrendo é de minha responsabilidade o efetivo pagamento.</li>
+        <li>AUTORIZO uso dos meus dados pessoais e dados pessoais sensíveis, de acordo com os artigos 7º e 11º da Lei 13.709/2018 – Lei Geral de Proteção de Dados Pessoais (LGPD), e autorizo expressamente o tratamento e o compartilhamento dos meus dados com os colaboradores, parceiros e contratados do SINATRAN-DF, visando à obtenção dos benefícios ofertados pelo sindicato.</li>
+        <li>DECLARO que estou ciente que a filiação só se concretizará a partir do pagamento da 1ª mensalidade.</li>
+    </ol>
+
+    <div class="flex flex-col gap-3 text-gray-700">
+        <label class="inline-flex items-center">
+            <input type="checkbox" name="autoriza_envio" value="sim" id="autoriza_envio"
+                class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500"
+                {{ old('autoriza_envio') == 'sim' ? 'checked' : '' }}>
+            <span class="ml-2">AUTORIZO o envio de mensagens via aplicativo de comunicação e email.</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="checkbox" name="nao_autoriza_envio" value="sim" id="nao_autoriza_envio"
+                class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500"
+                {{ old('nao_autoriza_envio') == 'sim' ? 'checked' : '' }}>
+            <span class="ml-2">NÃO AUTORIZO o envio de mensagens.</span>
+        </label>
+    </div>
+</div>
+
 
             <div class="mt-8 flex justify-center">
                 <button type="submit"

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Filiacao;
 use App\Models\FiliacaoDependente;
+use Barryvdh\DomPDF\Facade\Pdf; // Certifique-se de instalar barryvdh/laravel-dompdf
 
 class FiliacaoController extends Controller
 {
@@ -64,7 +65,18 @@ class FiliacaoController extends Controller
             }
         }
 
-        return redirect()->route('filiacao.create')->with('success', 'Filiação enviada com sucesso!');
+        // Gere o PDF após salvar os dados
+        $data = $request->all();
+
+        // Caminho da logo para passar para a view
+        //$data['logo_path'] = public_path('images/sinatrandf.png');
+
+        $pdf = Pdf::loadView('filiacao.pdf', compact('data'))
+            ->setPaper('a4')
+            ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+
+        // Download direto após cadastro
+        return $pdf->download('ficha_filiacao_'.$data['cpf'].'.pdf');
     }
 }
 
