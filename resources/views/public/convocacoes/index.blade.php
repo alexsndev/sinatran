@@ -40,7 +40,7 @@
 
         @forelse ($ultimasConvocacoes as $convocacao)
             <div class="mb-6 border-b border-gray-200 pb-3">
-                <a href="{{ route('noticia.show', $convocacao->id) }}"
+                <a href="{{ route('noticias.show', $convocacao->id) }}"
                    class="text-base font-semibold text-gray-900 hover:text-blue-700 transition hover:underline block mb-1">
                     {{ $convocacao->titulo }}
                 </a>
