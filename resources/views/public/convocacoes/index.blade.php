@@ -1,11 +1,10 @@
 @extends('layouts.public')
 
 @section('content')
-<div class="container mx-auto px-4 py-8 flex gap-8">
-
+<div class="container mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
     @if ($convocacaoAtual)
         <!-- Coluna principal: convocação atual -->
-        <div class="w-3/4 bg-white p-8 rounded-xl shadow flex flex-col">
+        <div class="w-full lg:w-3/4 bg-white p-8 rounded-xl shadow flex flex-col mb-8 lg:mb-0">
             <h1 class="text-3xl font-extrabold mb-4 text-gray-900 leading-tight tracking-tight">
                 {{ $convocacaoAtual->titulo }}
             </h1>
@@ -35,13 +34,13 @@
         </div>
     @endif
 
-    <!-- Coluna das últimas convocatórias -->
-    <div class="w-1/4 bg-gray-50 p-6 rounded-xl shadow flex flex-col max-h-[600px] overflow-y-auto">
+    <!-- Coluna das últimas convocações -->
+    <div class="w-full lg:w-1/4 bg-gray-50 p-6 rounded-xl shadow flex flex-col max-h-[600px] lg:max-h-[600px] overflow-y-auto">
         <h2 class="text-xl font-bold mb-6 text-gray-800 tracking-tight">Últimas Convocações</h2>
 
         @forelse ($ultimasConvocacoes as $convocacao)
             <div class="mb-6 border-b border-gray-200 pb-3">
-                <a href="{{ route('convocacoes.index') }}#convocacao-{{ $convocacao->id }}"
+                <a href="{{ route('noticia.show', $convocacao->id) }}"
                    class="text-base font-semibold text-gray-900 hover:text-blue-700 transition hover:underline block mb-1">
                     {{ $convocacao->titulo }}
                 </a>
